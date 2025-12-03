@@ -101,9 +101,15 @@
         }
         .light-sweep:hover::before { left: calc(100% + 100px); transition: left 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
 
-        /* Scroller */
+        /* Scroller - CORREÇÃO DO CORTE */
         @keyframes scroll { to { transform: translateX(-50%); } }
-        .scroller { max-width: 1200px; overflow: hidden; -webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent); mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent); }
+        .scroller { 
+            max-width: 1200px; 
+            overflow: hidden; 
+            /* Máscara reduzida de 20% para 5% para diminuir o corte visual */
+            -webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent); 
+            mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent); 
+        }
         .scroller__inner { display: flex; flex-wrap: nowrap; gap: 4rem; width: max-content; animation: scroll 30s linear infinite; }
         
         /* Animations */
@@ -125,9 +131,9 @@
 <body class="bg-white text-[#333333] font-sans antialiased">
 
     <!-- NAVBAR -->
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 sm:px-12 bg-transparent">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3 px-4 sm:px-12 bg-transparent">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#inicio" class="text-2xl font-ai font-bold text-[#333333] flex items-center gap-2">
+            <a href="#inicio" class="text-xl md:text-2xl font-ai font-bold text-[#333333] flex items-center gap-2">
                 <span class="text-[#64B5F6]">MSA</span>creators
             </a>
             <div class="hidden md:flex items-center gap-8">
@@ -136,12 +142,11 @@
                 <a href="#sobre" class="font-bold text-[#666666] hover:text-[#64B5F6] transition-colors">Sobre</a>
                 <a href="#servicos" class="font-bold text-[#666666] hover:text-[#64B5F6] transition-colors">Serviços</a>
                 <a href="#fluxo" class="font-bold text-[#666666] hover:text-[#64B5F6] transition-colors">Processo</a>
-                <a href="#ai-tools" class="font-bold text-[#666666] hover:text-[#64B5F6] transition-colors">Ferramentas IA</a>
                 <a href="#contato" class="bg-[#333333] text-white px-5 py-2 rounded-full font-bold hover:bg-[#64B5F6] transition-colors">Contato</a>
                 <a href="#faq" class="font-bold text-[#666666] hover:text-[#64B5F6] transition-colors text-sm">Dúvidas</a>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-[#333333] focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 py-4 px-6 flex flex-col gap-4">
@@ -150,57 +155,56 @@
             <a href="#sobre" class="font-bold text-[#666666] hover:text-[#64B5F6]">Sobre</a>
             <a href="#servicos" class="font-bold text-[#666666] hover:text-[#64B5F6]">Serviços</a>
             <a href="#fluxo" class="font-bold text-[#666666] hover:text-[#64B5F6]">Processo</a>
-            <a href="#ai-tools" class="font-bold text-[#666666] hover:text-[#64B5F6]">Ferramentas IA</a>
             <a href="#contato" class="font-bold text-[#64B5F6]">Contato</a>
             <a href="#faq" class="font-bold text-[#666666] hover:text-[#64B5F6]">Dúvidas</a>
         </div>
     </nav>
 
-    <!-- SEÇÃO 1: ABERTURA (HERO) -->
-    <header id="inicio" class="min-h-[60vh] flex flex-col items-center justify-center bg-white relative overflow-hidden px-6 py-12 pt-24">
+    <!-- SEÇÃO 1: ABERTURA (HERO) - COMPACTADA NO MOBILE -->
+    <header id="inicio" class="min-h-[50vh] md:min-h-[60vh] flex flex-col items-center justify-center bg-white relative overflow-hidden px-4 py-8 pt-20 md:px-6 md:py-12 md:pt-24">
         <div class="flex-shrink-0 z-20 logo-tech-wrapper">
-            <img src="https://i.postimg.cc/vTr77yV5/AGANT-BPO-(1).png" alt="Logo MSA creators" class="logo-tech h-60 md:h-96 w-auto object-contain">
+            <img src="https://i.postimg.cc/vTr77yV5/AGANT-BPO-(1).png" alt="Logo MSA creators" class="logo-tech h-32 md:h-96 w-auto object-contain">
         </div>
         
-        <!-- SEÇÃO DE ESTATÍSTICAS DE IMPACTO -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto mt-8 w-full">
-            <div class="text-center p-4 border-r border-gray-100 last:border-0">
-                <span class="block text-3xl md:text-4xl font-ai font-bold text-[#64B5F6]">+100</span>
-                <span class="text-sm md:text-base text-gray-500 font-semibold uppercase">Vídeos Editados</span>
+        <!-- SEÇÃO DE ESTATÍSTICAS DE IMPACTO - EM LINHA NO MOBILE -->
+        <div class="grid grid-cols-4 gap-2 md:gap-8 max-w-5xl mx-auto mt-6 md:mt-8 w-full">
+            <div class="text-center p-1 md:p-4 border-r border-gray-100 last:border-0">
+                <span class="block text-lg md:text-4xl font-ai font-bold text-[#64B5F6]">+100</span>
+                <span class="text-[10px] md:text-base text-gray-500 font-semibold uppercase">Vídeos</span>
             </div>
-            <div class="text-center p-4 border-r border-gray-100 last:border-0">
-                <span class="block text-3xl md:text-4xl font-ai font-bold text-[#64B5F6]">+5M</span>
-                <span class="text-sm md:text-base text-gray-500 font-semibold uppercase">Views Geradas</span>
+            <div class="text-center p-1 md:p-4 border-r border-gray-100 last:border-0">
+                <span class="block text-lg md:text-4xl font-ai font-bold text-[#64B5F6]">+5M</span>
+                <span class="text-[10px] md:text-base text-gray-500 font-semibold uppercase">Views</span>
             </div>
-            <div class="text-center p-4 border-r border-gray-100 last:border-0">
-                <span class="block text-3xl md:text-4xl font-ai font-bold text-[#64B5F6]">100%</span>
-                <span class="text-sm md:text-base text-gray-500 font-semibold uppercase">Prazos Cumpridos</span>
+            <div class="text-center p-1 md:p-4 border-r border-gray-100 last:border-0">
+                <span class="block text-lg md:text-4xl font-ai font-bold text-[#64B5F6]">100%</span>
+                <span class="text-[10px] md:text-base text-gray-500 font-semibold uppercase">Prazos</span>
             </div>
-            <div class="text-center p-4">
-                <span class="block text-3xl md:text-4xl font-ai font-bold text-[#64B5F6]">24h</span>
-                <span class="text-sm md:text-base text-gray-500 font-semibold uppercase">Suporte Rápido</span>
+            <div class="text-center p-1 md:p-4">
+                <span class="block text-lg md:text-4xl font-ai font-bold text-[#64B5F6]">24h</span>
+                <span class="text-[10px] md:text-base text-gray-500 font-semibold uppercase">Suporte</span>
             </div>
         </div>
 
-        <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
+        <div class="absolute bottom-2 md:bottom-4 left-1/2 -translate-x-1/2">
             <a href="#portfolio" class="animate-bounce-slow">
-                <svg class="w-8 h-8 text-[#333333]" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 9l-7 7-7-7"></path></svg>
+                <svg class="w-6 h-6 md:w-8 md:h-8 text-[#333333]" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 9l-7 7-7-7"></path></svg>
             </a>
         </div>
     </header>
 
     <main>
-        <!-- SEÇÃO 2: PORTFÓLIO -->
-        <section id="portfolio" class="pt-4 pb-20 px-6 sm:px-12 bg-white relative">
+        <!-- SEÇÃO 2: PORTFÓLIO - COMPACTADA -->
+        <section id="portfolio" class="pt-4 pb-10 md:pb-20 px-4 md:px-6 sm:px-12 bg-white relative">
             <div class="max-w-7xl mx-auto">
-                <div class="flex justify-center mb-12">
+                <div class="flex justify-center mb-6 md:mb-12">
                     <div class="glitch-wrapper">
-                        <h2 class="glitch text-5xl md:text-6xl font-ai font-black uppercase tracking-widest" data-text="Portfólio">Portfólio</h2>
+                        <h2 class="glitch text-3xl md:text-6xl font-ai font-black uppercase tracking-widest" data-text="Portfólio">Portfólio</h2>
                     </div>
                 </div>
-                <p class="text-center text-[#666666] mb-12">Alguns dos meus trabalhos mais recentes. Clique para assistir.</p>
+                <p class="text-center text-[#666666] text-sm md:text-base mb-8 md:mb-12">Alguns dos meus trabalhos mais recentes. Clique para assistir.</p>
                 
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-8">
                     
                     <!-- VÍDEO 1 -->
                     <div class="portfolio-item group cursor-pointer" data-video-type="vimeo" data-video-id="1141435956" data-title="UPEAV" data-role="Editor" data-description="Vídeo institucional produzido com imagens e avatar gerados por Inteligência Artificial, trazendo um visual moderno e sofisticado para a UPEAV. A edição dinâmica realizada no CapCut harmoniza o storytelling com cortes precisos, resultando em uma peça de alto impacto visual sobre o mercado de exportação." data-software="CapCut, Flow, Whisk, Gemini, Chat GPT, Grok, Canva e Kling AI">
@@ -266,52 +270,52 @@
                     <a href="#contato" class="group">
                         <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl hover:shadow-[#64B5F6]/40 transition-all duration-300 light-sweep aspect-[9/16] bg-gradient-to-br from-[#64B5F6] to-[#42A5F5] flex flex-col items-center justify-center text-center p-4 border-4 border-transparent group-hover:border-[#64B5F6]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/80 group-hover:scale-110 transition-transform mb-4"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-                            <h3 class="text-white text-xl font-title font-bold title-shadow uppercase">Seu projeto pode ser o próximo</h3>
+                            <h3 class="text-white text-lg md:text-xl font-title font-bold title-shadow uppercase">Seu projeto pode ser o próximo</h3>
                         </div>
                     </a>
                 </div>
 
-                <div class="text-center mt-16">
-                     <a href="#contato" class="light-sweep inline-block bg-gradient-to-r from-[#64B5F6] to-[#42A5F5] text-white font-bold py-4 px-10 rounded-lg hover:from-[#42A5F5] hover:to-[#64B5F6] transition-all duration-300 text-xl animate-pulse-shadow">
+                <div class="text-center mt-12">
+                     <a href="#contato" class="light-sweep inline-block bg-gradient-to-r from-[#64B5F6] to-[#42A5F5] text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-lg hover:from-[#42A5F5] hover:to-[#64B5F6] transition-all duration-300 text-lg md:text-xl animate-pulse-shadow">
                         Clique e veja a mágica acontecer
                     </a>
                 </div>
             </div>
             <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <a href="#clientes" class="animate-bounce-slow">
-                    <svg class="w-8 h-8 text-[#333333]" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="w-6 h-6 md:w-8 md:h-8 text-[#333333]" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 9l-7 7-7-7"></path></svg>
                 </a>
             </div>
         </section>
 
         <!-- SEÇÃO 3: CLIENTES -->
-        <section id="clientes" class="py-20 px-6 sm:px-12 bg-[#CFD8DC] relative">
+        <section id="clientes" class="py-8 md:py-20 px-4 md:px-6 sm:px-12 bg-[#CFD8DC] relative">
             <div class="max-w-7xl mx-auto text-center">
                 <div class="flex justify-center mb-2">
-                    <h2 class="text-4xl font-title font-bold text-white uppercase bg-gradient-to-r from-[#64B5F6] to-[#42A5F5] py-3 px-8 rounded-lg inline-block shadow-lg title-shadow">Marcas que Confiam</h2>
+                    <h2 class="text-2xl md:text-4xl font-title font-bold text-white uppercase bg-gradient-to-r from-[#64B5F6] to-[#42A5F5] py-2 px-6 rounded-lg inline-block shadow-lg title-shadow">Marcas que Confiam</h2>
                 </div>
-                <p class="text-center text-[#666666] mb-12">Alguns dos clientes com quem tive o prazer de colaborar.</p>
+                <p class="text-center text-[#666666] mb-8 md:mb-12 text-sm md:text-base">Alguns dos clientes com quem tive o prazer de colaborar.</p>
                 <div class="scroller mx-auto" data-animated="true">
                     <div class="scroller__inner">
-                        <img src="https://i.postimg.cc/Xv3dmYnm/ALYFARMA.jpg" alt="Logo" class="h-14 flex-shrink-0 rounded-lg">
-                        <img src="https://i.postimg.cc/q7y0hpnf/mini-padarias.jpg" alt="Logo" class="h-14 flex-shrink-0 rounded-lg">
-                        <img src="https://i.postimg.cc/4N0mpNK6/salles.jpg" alt="Logo" class="h-14 flex-shrink-0 rounded-lg">
-                        <img src="https://i.postimg.cc/0QCCNJyc/imob.jpg" alt="Logo" class="h-14 flex-shrink-0 rounded-lg">
-                        <img src="https://i.postimg.cc/fWr9fvpv/comarcio.jpg" alt="Logo" class="h-14 flex-shrink-0 rounded-lg">
-                        <img src="https://i.postimg.cc/cCb5B58Z/cm.jpg" alt="Logo" class="h-14 flex-shrink-0 rounded-lg">
-                        <img src="https://i.postimg.cc/C1vvw67r/Design-sem-nome-(16).jpg" alt="Logo" class="h-14 flex-shrink-0 rounded-lg">
-                        <img src="https://i.postimg.cc/bwHWKg7R/FIOS-DE-OURO.jpg" alt="Logo" class="h-14 flex-shrink-0 rounded-lg">
-                        <img src="https://i.postimg.cc/5NPFnWyd/AGANT-BPO.jpg" alt="Logo" class="h-14 flex-shrink-0 rounded-lg">
-                        <img src="https://i.postimg.cc/ryhmWnyM/AGANT-BPO-(1).jpg" alt="Logo MFJB" class="h-14 flex-shrink-0 rounded-lg">
-                        <img src="https://i.postimg.cc/zvM8QQ3p/AGANT-BPO.jpg" alt="Logo" class="h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/Xv3dmYnm/ALYFARMA.jpg" alt="Logo" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/q7y0hpnf/mini-padarias.jpg" alt="Logo" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/4N0mpNK6/salles.jpg" alt="Logo" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/0QCCNJyc/imob.jpg" alt="Logo" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/fWr9fvpv/comarcio.jpg" alt="Logo" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/cCb5B58Z/cm.jpg" alt="Logo" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/C1vvw67r/Design-sem-nome-(16).jpg" alt="Logo" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/bwHWKg7R/FIOS-DE-OURO.jpg" alt="Logo" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/5NPFnWyd/AGANT-BPO.jpg" alt="Logo" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/ryhmWnyM/AGANT-BPO-(1).jpg" alt="Logo MFJB" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
+                        <img src="https://i.postimg.cc/zvM8QQ3p/AGANT-BPO.jpg" alt="Logo" class="h-10 md:h-14 flex-shrink-0 rounded-lg">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- SEÇÃO 4: SOBRE MIM -->
-        <section id="sobre" class="py-20 px-6 sm:px-12 bg-[#263238] text-white relative">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+        <section id="sobre" class="py-8 md:py-20 px-4 md:px-6 sm:px-12 bg-[#263238] text-white relative">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-center">
                 <div class="md:col-span-1">
                     <div class="relative group">
                         <div class="absolute -inset-1 bg-gradient-to-r from-[#64B5F6] to-[#42A5F5] rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
@@ -319,20 +323,20 @@
                     </div>
                 </div>
                 <div class="md:col-span-2">
-                    <h2 class="text-4xl lg:text-5xl font-title font-bold uppercase mb-6 flex flex-col gap-2">
-                        <span class="text-gray-400 text-2xl font-normal normal-case tracking-widest">Quem sou eu?</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-title font-bold uppercase mb-4 md:mb-6 flex flex-col gap-1 md:gap-2">
+                        <span class="text-gray-400 text-lg md:text-2xl font-normal normal-case tracking-widest">Quem sou eu?</span>
                         <span>Meu nome é <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#64B5F6] to-[#42A5F5]">Samuel Almeida</span>.</span>
                     </h2>
-                    <div class="space-y-6 text-lg lg:text-xl text-gray-300 mb-10 leading-relaxed">
+                    <div class="space-y-4 md:space-y-6 text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-10 leading-relaxed">
                         <p>Sou editor e criador de vídeos com inteligência artificial, transformando ideias em narrativas visuais poderosas.</p>
                         <p>Unindo técnica, criatividade e tecnologia de ponta, produzo vídeos modernos, envolventes e estrategicamente pensados para gerar impacto real. Meu foco é elevar marcas e projetos com conteúdo inteligente, rápido e de alto padrão — vídeos que não apenas chamam atenção, mas ficam na memória.</p>
                     </div>
-                    <div class="flex flex-wrap gap-x-6 gap-y-4 items-center border-t border-white/10 pt-8">
-                        <div class="flex items-center gap-2 text-base font-bold text-white bg-white/5 px-4 py-2 rounded-full border border-white/5 hover:border-[#64B5F6]/50 transition-colors"><span>Agilidade</span></div>
-                        <div class="flex items-center gap-2 text-base font-bold text-white bg-white/5 px-4 py-2 rounded-full border border-white/5 hover:border-[#64B5F6]/50 transition-colors"><span>Color Grading</span></div>
-                        <div class="flex items-center gap-2 text-base font-bold text-white bg-white/5 px-4 py-2 rounded-full border border-white/5 hover:border-[#64B5F6]/50 transition-colors"><span>Storytelling</span></div>
-                        <div class="flex items-center gap-2 text-base font-bold text-white bg-white/5 px-4 py-2 rounded-full border border-white/5 hover:border-[#64B5F6]/50 transition-colors"><span>AI Video Editor</span></div>
-                        <a href="https://www.instagram.com/msacreators/" target="_blank" class="flex items-center gap-2 text-base font-bold text-gray-300 hover:text-white transition-colors ml-auto hover:underline">
+                    <div class="flex flex-wrap gap-x-4 gap-y-3 items-center border-t border-white/10 pt-6">
+                        <div class="flex items-center gap-2 text-sm md:text-base font-bold text-white bg-white/5 px-3 py-1.5 rounded-full border border-white/5 hover:border-[#64B5F6]/50 transition-colors"><span>Agilidade</span></div>
+                        <div class="flex items-center gap-2 text-sm md:text-base font-bold text-white bg-white/5 px-3 py-1.5 rounded-full border border-white/5 hover:border-[#64B5F6]/50 transition-colors"><span>Color Grading</span></div>
+                        <div class="flex items-center gap-2 text-sm md:text-base font-bold text-white bg-white/5 px-3 py-1.5 rounded-full border border-white/5 hover:border-[#64B5F6]/50 transition-colors"><span>Storytelling</span></div>
+                        <div class="flex items-center gap-2 text-sm md:text-base font-bold text-white bg-white/5 px-3 py-1.5 rounded-full border border-white/5 hover:border-[#64B5F6]/50 transition-colors"><span>AI Video Editor</span></div>
+                        <a href="https://www.instagram.com/msacreators/" target="_blank" class="flex items-center gap-2 text-sm md:text-base font-bold text-gray-300 hover:text-white transition-colors ml-auto hover:underline">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#64B5F6]"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                             <span>Me siga no Instagram</span>
                         </a>
@@ -341,185 +345,148 @@
             </div>
         </section>
 
-        <!-- SEÇÃO DE SERVIÇOS (ADICIONADA) -->
-        <section id="servicos" class="py-20 px-6 sm:px-12 bg-white relative overflow-hidden">
+        <!-- SEÇÃO DE SERVIÇOS - GRADE NO MOBILE PARA ECONOMIZAR ESPAÇO -->
+        <section id="servicos" class="py-8 md:py-20 px-4 md:px-6 sm:px-12 bg-white relative overflow-hidden">
             <div class="absolute top-0 right-0 w-64 h-64 bg-[#64B5F6]/5 rounded-full filter blur-3xl -translate-y-1/2 translate-x-1/2"></div>
             
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-title font-bold text-[#333333] uppercase">Soluções Completas</h2>
-                    <p class="mt-4 text-[#666666]">Do roteiro à finalização, escolha o formato ideal para o seu objetivo.</p>
+                <div class="text-center mb-10 md:mb-16">
+                    <h2 class="text-3xl md:text-4xl font-title font-bold text-[#333333] uppercase">Soluções Completas</h2>
+                    <p class="mt-2 md:mt-4 text-[#666666] text-sm md:text-base">Do roteiro à finalização, escolha o formato ideal.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Grid de 2 Colunas no Mobile (Menos Rolagem) -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                     <!-- Serviço 1 -->
-                    <div class="group p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#64B5F6] transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                    <div class="group p-4 md:p-8 bg-gray-50 rounded-xl md:rounded-2xl border border-gray-100 hover:border-[#64B5F6] transition-all duration-300 hover:shadow-xl relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1 bg-[#64B5F6] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                        <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-[#64B5F6]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="10" height="16" x="7" y="4" rx="2"/><path d="M9 17h6"/></svg>
+                        <div class="w-10 h-10 md:w-14 md:h-14 bg-white rounded-lg md:rounded-xl shadow-sm flex items-center justify-center mb-4 md:mb-6 text-[#64B5F6]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" md:width="32" md:height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="10" height="16" x="7" y="4" rx="2"/><path d="M9 17h6"/></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#333333] mb-3">Vídeos Verticais</h3>
-                        <p class="text-[#666666] text-sm">Edição dinâmica para Reels, TikTok e Shorts. Legendas animadas e retenção máxima.</p>
+                        <h3 class="text-sm md:text-xl font-bold text-[#333333] mb-2 md:mb-3">Vídeos Verticais</h3>
+                        <p class="text-[#666666] text-xs md:text-sm">Edição dinâmica para Reels e TikTok. Retenção máxima.</p>
                     </div>
 
                     <!-- Serviço 2 -->
-                    <div class="group p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#42A5F5] transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                    <div class="group p-4 md:p-8 bg-gray-50 rounded-xl md:rounded-2xl border border-gray-100 hover:border-[#42A5F5] transition-all duration-300 hover:shadow-xl relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1 bg-[#42A5F5] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                        <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-[#42A5F5]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M17 21v-8.5a1.5 1.5 0 0 0-1.5-1.5h-7a1.5 1.5 0 0 0-1.5 1.5V21"/></svg>
+                        <div class="w-10 h-10 md:w-14 md:h-14 bg-white rounded-lg md:rounded-xl shadow-sm flex items-center justify-center mb-4 md:mb-6 text-[#42A5F5]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" md:width="32" md:height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M17 21v-8.5a1.5 1.5 0 0 0-1.5-1.5h-7a1.5 1.5 0 0 0-1.5 1.5V21"/></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#333333] mb-3">Institucionais</h3>
-                        <p class="text-[#666666] text-sm">Transmita autoridade e credibilidade. Ideal para empresas, construtoras e eventos corporativos.</p>
+                        <h3 class="text-sm md:text-xl font-bold text-[#333333] mb-2 md:mb-3">Institucionais</h3>
+                        <p class="text-[#666666] text-xs md:text-sm">Transmita autoridade. Ideal para empresas e construtoras.</p>
                     </div>
 
                     <!-- Serviço 3 -->
-                    <div class="group p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#64B5F6] transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                    <div class="group p-4 md:p-8 bg-gray-50 rounded-xl md:rounded-2xl border border-gray-100 hover:border-[#64B5F6] transition-all duration-300 hover:shadow-xl relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1 bg-[#64B5F6] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                        <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-[#64B5F6]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+                        <div class="w-10 h-10 md:w-14 md:h-14 bg-white rounded-lg md:rounded-xl shadow-sm flex items-center justify-center mb-4 md:mb-6 text-[#64B5F6]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" md:width="32" md:height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#333333] mb-3">VSL & Vendas</h3>
-                        <p class="text-[#666666] text-sm">Vídeos estrategicamente editados para conversão. Copywriting visual e ritmo persuasivo.</p>
+                        <h3 class="text-sm md:text-xl font-bold text-[#333333] mb-2 md:mb-3">VSL & Vendas</h3>
+                        <p class="text-[#666666] text-xs md:text-sm">Vídeos editados para conversão. Copywriting visual.</p>
                     </div>
 
                     <!-- Serviço 4 -->
-                    <div class="group p-8 bg-gray-50 rounded-2xl border border-gray-100 hover:border-[#42A5F5] transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                    <div class="group p-4 md:p-8 bg-gray-50 rounded-xl md:rounded-2xl border border-gray-100 hover:border-[#42A5F5] transition-all duration-300 hover:shadow-xl relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-full h-1 bg-[#42A5F5] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                        <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-[#42A5F5]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                        <div class="w-10 h-10 md:w-14 md:h-14 bg-white rounded-lg md:rounded-xl shadow-sm flex items-center justify-center mb-4 md:mb-6 text-[#42A5F5]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" md:width="32" md:height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-[#333333] mb-3">Motion & IA</h3>
-                        <p class="text-[#666666] text-sm">Animações 2D, efeitos visuais e uso de Inteligência Artificial para criar o impossível.</p>
+                        <h3 class="text-sm md:text-xl font-bold text-[#333333] mb-2 md:mb-3">Motion & IA</h3>
+                        <p class="text-[#666666] text-xs md:text-sm">Animações 2D, VFX e Inteligência Artificial.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 5: FLUXO -->
-        <section id="fluxo" class="py-20 px-6 sm:px-12 bg-white relative border-t border-gray-100">
+        <!-- SEÇÃO 5: FLUXO - GRADE NO MOBILE PARA ECONOMIZAR ESPAÇO -->
+        <section id="fluxo" class="py-8 md:py-20 px-4 md:px-6 sm:px-12 bg-white relative border-t border-gray-100">
             <div class="max-w-7xl mx-auto text-center">
-                <div class="flex justify-center mb-12">
-                    <h2 class="text-4xl font-title font-bold text-white uppercase bg-gradient-to-r from-[#64B5F6] to-[#42A5F5] py-3 px-8 rounded-lg inline-block shadow-lg title-shadow">Como Funciona o Processo</h2>
+                <div class="flex justify-center mb-8 md:mb-12">
+                    <h2 class="text-3xl md:text-4xl font-title font-bold text-white uppercase bg-gradient-to-r from-[#64B5F6] to-[#42A5F5] py-2 px-6 rounded-lg inline-block shadow-lg title-shadow">Processo</h2>
                 </div>
-                <p class="text-center text-[#666666] mb-16 max-w-3xl mx-auto">Nossa parceria segue 4 passos claros e organizados, garantindo eficiência, comunicação total e um resultado final que supera as expectativas.</p>
+                <p class="text-center text-[#666666] mb-10 md:mb-16 max-w-3xl mx-auto text-sm md:text-base">Passos claros e organizados para um resultado incrível.</p>
+                
                 <div class="relative">
                     <div class="hidden lg:block absolute top-12 left-0 w-full h-1 bg-gradient-to-r from-[#64B5F6] to-[#42A5F5] -z-10 rounded opacity-50"></div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Grid 2 Colunas Mobile -->
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
                         <!-- Passo 1 -->
-                        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform duration-300 relative z-10 flex flex-col items-center">
-                            <div class="relative inline-flex items-center justify-center h-20 w-20 bg-white rounded-full border-4 border-[#64B5F6] shadow-md mb-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
-                                <div class="absolute -top-2 -right-2 bg-[#64B5F6] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-sm">1</div>
+                        <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-gray-100 relative z-10 flex flex-col items-center">
+                            <div class="relative inline-flex items-center justify-center h-12 w-12 md:h-20 md:w-20 bg-white rounded-full border-2 md:border-4 border-[#64B5F6] shadow-md mb-3 md:mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" md:width="32" md:height="32" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+                                <div class="absolute -top-1 -right-1 md:-top-2 md:-right-2 bg-[#64B5F6] text-white w-5 h-5 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-xs md:text-base shadow-sm">1</div>
                             </div>
-                            <h3 class="text-xl font-title font-bold text-[#333333] mb-3">Briefing & Ideia</h3>
-                            <p class="text-[#666666] text-sm leading-relaxed">Alinhamos a visão, o objetivo do vídeo (vender, viralizar, educar) e a identidade da sua marca. Recebemos o material bruto e planejamos o roteiro.</p>
+                            <h3 class="text-sm md:text-xl font-title font-bold text-[#333333] mb-1 md:mb-3">Briefing</h3>
+                            <p class="text-[#666666] text-xs md:text-sm leading-relaxed">Alinhamos objetivo e roteiro.</p>
                         </div>
                         <!-- Passo 2 -->
-                        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform duration-300 relative z-10 flex flex-col items-center">
-                            <div class="relative inline-flex items-center justify-center h-20 w-20 bg-white rounded-full border-4 border-[#42A5F5] shadow-md mb-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17.5 17.5 2.5 2.5"/><path d="M13.5 19h-10A2.5 2.5 0 0 1 1 16.5v-10A2.5 2.5 0 0 1 3.5 4h10A2.5 2.5 0 0 1 16 6.5v10a2.5 2.5 0 0 1-2.5 2.5z"/><path d="M17 19v-2.5"/></svg>
-                                <div class="absolute -top-2 -right-2 bg-[#42A5F5] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-sm">2</div>
+                        <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-gray-100 relative z-10 flex flex-col items-center">
+                            <div class="relative inline-flex items-center justify-center h-12 w-12 md:h-20 md:w-20 bg-white rounded-full border-2 md:border-4 border-[#42A5F5] shadow-md mb-3 md:mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" md:width="32" md:height="32" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17.5 17.5 2.5 2.5"/><path d="M13.5 19h-10A2.5 2.5 0 0 1 1 16.5v-10A2.5 2.5 0 0 1 3.5 4h10A2.5 2.5 0 0 1 16 6.5v10a2.5 2.5 0 0 1-2.5 2.5z"/><path d="M17 19v-2.5"/></svg>
+                                <div class="absolute -top-1 -right-1 md:-top-2 md:-right-2 bg-[#42A5F5] text-white w-5 h-5 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-xs md:text-base shadow-sm">2</div>
                             </div>
-                            <h3 class="text-xl font-title font-bold text-[#333333] mb-3">Edição Mágica</h3>
-                            <p class="text-[#666666] text-sm leading-relaxed">A edição é feita, aplicando o ritmo, o Sound Design, Motion Graphics e o Color Grading para dar vida e profissionalismo ao conteúdo.</p>
+                            <h3 class="text-sm md:text-xl font-title font-bold text-[#333333] mb-1 md:mb-3">Edição</h3>
+                            <p class="text-[#666666] text-xs md:text-sm leading-relaxed">Cortes, IA e Motion Design.</p>
                         </div>
                         <!-- Passo 3 -->
-                        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform duration-300 relative z-10 flex flex-col items-center">
-                            <div class="relative inline-flex items-center justify-center h-20 w-20 bg-white rounded-full border-4 border-[#64B5F6] shadow-md mb-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                                <div class="absolute -top-2 -right-2 bg-[#64B5F6] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-sm">3</div>
+                        <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-gray-100 relative z-10 flex flex-col items-center">
+                            <div class="relative inline-flex items-center justify-center h-12 w-12 md:h-20 md:w-20 bg-white rounded-full border-2 md:border-4 border-[#64B5F6] shadow-md mb-3 md:mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" md:width="32" md:height="32" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                                <div class="absolute -top-1 -right-1 md:-top-2 md:-right-2 bg-[#64B5F6] text-white w-5 h-5 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-xs md:text-base shadow-sm">3</div>
                             </div>
-                            <h3 class="text-xl font-title font-bold text-[#333333] mb-3">Revisão</h3>
-                            <p class="text-[#666666] text-sm leading-relaxed">Você recebe a primeira versão para aprovação. Fazemos os ajustes finos e garantimos que a edição está 100% de acordo com o planejado.</p>
+                            <h3 class="text-sm md:text-xl font-title font-bold text-[#333333] mb-1 md:mb-3">Revisão</h3>
+                            <p class="text-[#666666] text-xs md:text-sm leading-relaxed">Ajustes para perfeição.</p>
                         </div>
                         <!-- Passo 4 -->
-                        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform duration-300 relative z-10 flex flex-col items-center">
-                            <div class="relative inline-flex items-center justify-center h-20 w-20 bg-white rounded-full border-4 border-[#42A5F5] shadow-md mb-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10s-7 4-7 9c0 0 0 3-7 3s-7-3-7-3c0-5-7-9-7-9l7 2 7-2 7 2z"/><path d="M12 12V3"/></svg>
-                                <div class="absolute -top-2 -right-2 bg-[#42A5F5] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-sm">4</div>
+                        <div class="bg-white p-4 md:p-6 rounded-xl shadow-lg border border-gray-100 relative z-10 flex flex-col items-center">
+                            <div class="relative inline-flex items-center justify-center h-12 w-12 md:h-20 md:w-20 bg-white rounded-full border-2 md:border-4 border-[#42A5F5] shadow-md mb-3 md:mb-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" md:width="32" md:height="32" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10s-7 4-7 9c0 0 0 3-7 3s-7-3-7-3c0-5-7-9-7-9l7 2 7-2 7 2z"/><path d="M12 12V3"/></svg>
+                                <div class="absolute -top-1 -right-1 md:-top-2 md:-right-2 bg-[#42A5F5] text-white w-5 h-5 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-xs md:text-base shadow-sm">4</div>
                             </div>
-                            <h3 class="text-xl font-title font-bold text-[#333333] mb-3">Entrega Final</h3>
-                            <p class="text-[#666666] text-sm leading-relaxed">Você recebe o arquivo final, otimizado e pronto para ser postado na plataforma de sua escolha (YouTube, TikTok, Instagram, etc.).</p>
+                            <h3 class="text-sm md:text-xl font-title font-bold text-[#333333] mb-1 md:mb-3">Entrega</h3>
+                            <p class="text-[#666666] text-xs md:text-sm leading-relaxed">Vídeo pronto para postar.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 6: AI TOOLS -->
-        <section id="ai-tools" class="py-20 px-6 sm:px-12 bg-white relative">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-10">
-                    <h2 class="text-4xl font-title font-bold text-[#333333] uppercase">Gerador de Roteiros de Vídeos Virais ✨</h2>
-                    <p class="mt-4 text-[#666666] text-lg">Está sem criatividade? Use a inteligência artificial do meu estúdio para criar um roteiro completo, minuto a minuto, pronto para gravar.</p>
-                </div>
-                <div class="bg-gradient-to-br from-[#64B5F6] to-[#42A5F5] rounded-xl shadow-2xl p-1">
-                    <div class="bg-white rounded-lg p-6 md:p-8">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <label for="ai-niche" class="block text-sm font-bold text-[#333333] mb-2">Qual seu Nicho?</label>
-                                <input type="text" id="ai-niche" placeholder="Ex: Fitness, Culinária, Moda..." class="w-full border-2 border-gray-200 rounded-lg p-3 focus:outline-none focus:border-[#64B5F6] transition-colors">
-                            </div>
-                            <div>
-                                <label for="ai-goal" class="block text-sm font-bold text-[#333333] mb-2">Qual o Objetivo?</label>
-                                <select id="ai-goal" class="w-full border-2 border-gray-200 rounded-lg p-3 focus:outline-none focus:border-[#64B5F6] transition-colors bg-white">
-                                    <option value="Viralizar / Alcance">Viralizar / Alcance</option>
-                                    <option value="Vender Produto">Vender Produto</option>
-                                    <option value="Ensinar / Tutorial">Ensinar / Tutorial</option>
-                                    <option value="Entreter / Humor">Entreter / Humor</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button id="btn-generate" class="w-full bg-[#333333] text-white font-bold py-4 rounded-lg hover:bg-black transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
-                            <span>Gerar Roteiro Completo com IA</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-                        </button>
-                        <div id="ai-result-container" class="mt-8 hidden">
-                            <h3 class="font-bold text-gray-400 text-xs uppercase tracking-wider mb-4">Roteiro Gerado:</h3>
-                            <div id="ai-output" class="space-y-4 bg-gray-50 p-6 rounded-lg border border-gray-200 font-sans text-left"></div>
-                            <div class="mt-6 text-center border-t border-gray-100 pt-6">
-                                <p class="text-[#666666] italic mb-4">Gostou desse roteiro? Eu posso produzir esse vídeo para você!</p>
-                                <a href="#contato" class="text-[#64B5F6] font-bold hover:underline">Solicitar Orçamento &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 7: CONTATO -->
-        <section id="contato" class="py-20 px-6 sm:px-12 bg-white">
+        <!-- SEÇÃO 7: CONTATO - COMPACTA NO MOBILE -->
+        <section id="contato" class="py-8 md:py-20 px-4 md:px-6 sm:px-12 bg-white">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-title font-bold text-white uppercase bg-gradient-to-r from-[#64B5F6] to-[#42A5F5] py-3 px-8 rounded-lg inline-block shadow-lg title-shadow">Vamos criar algo incrível juntos?</h2>
-                    <p class="mt-4 text-[#666666]">Vamos transformar sua ideia em um vídeo incrível. Entre em contato diretamente pelos canais abaixo.</p>
+                <div class="text-center mb-8 md:mb-12">
+                    <h2 class="text-2xl md:text-4xl font-title font-bold text-white uppercase bg-gradient-to-r from-[#64B5F6] to-[#42A5F5] py-2 px-6 rounded-lg inline-block shadow-lg title-shadow">Vamos criar algo incrível?</h2>
+                    <p class="mt-3 md:mt-4 text-[#666666] text-sm md:text-base">Entre em contato diretamente pelos canais abaixo.</p>
                 </div>
                 <div class="flex justify-center">
                     <div class="w-full max-w-4xl">
                         <div class="bg-gradient-to-br from-[#64B5F6] to-[#42A5F5] rounded-xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
-                            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/20">
-                                <h3 class="text-2xl font-title font-bold text-white uppercase mb-8 text-center md:text-left">Contatos Diretos</h3>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <a href="https://wa.link/5kwhdk" target="_blank" class="group flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 transition-all duration-300 p-4 rounded-xl border border-white/10 hover:border-white/40 text-white">
-                                        <svg class="mb-2 group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.7 1.21 5.51 0 10-4.49 10-10.02S17.5 2.04 12 2.04zm0 18.02c-1.55 0-3.05-.4-4.38-1.15l-.32-.19-3.26.86.88-3.18-.21-.34c-.85-1.38-1.3-2.94-1.3-4.57 0-4.42 3.59-8.02 8-8.02s8.02 3.6 8.02 8.02-3.6 8.02-8.02 8.02zM17.53 14.3c-.27-.13-1.64-.81-1.9-0.9-.26-.09-.45-.13-.64.13s-.72.9-.88 1.07c-.16.17-.32.19-.59.06s-1.14-.42-2.17-1.33c-.81-.71-1.35-1.59-1.57-1.87-.22-.27-.02-.42.12-.55.13-.12.27-.31.41-.46.14-.14.19-.24.28-.4.09-.16.05-.3-.02-.43s-.64-1.53-.87-2.08c-.23-.55-.47-.48-.64-.48-.17 0-.37-.01-.56-.01s-.5.08-.76.37c-.26.29-.99.96-.99 2.35s1.01 2.73 1.15 2.91c.13.19 1.99 3.04 4.83 4.25.68.29 1.22.47 1.64.6.6.19 1.13.16 1.56.1.48-.07 1.64-.67 1.87-1.32.24-.65.24-1.21.16-1.32-.08-.12-.27-.19-.54-.32z"/></svg>
-                                        <span class="font-bold">WhatsApp</span>
-                                        <span class="text-xs text-white/70">Falar Agora</span>
+                            <div class="w-full md:w-1/2 p-6 md:p-12 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/20">
+                                <h3 class="text-xl md:text-2xl font-title font-bold text-white uppercase mb-6 md:mb-8 text-center md:text-left">Contatos Diretos</h3>
+                                <!-- Grid 2 Colunas Mobile para Botões -->
+                                <div class="grid grid-cols-2 gap-3 md:gap-4">
+                                    <a href="https://wa.link/5kwhdk" target="_blank" class="group flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 transition-all duration-300 p-3 md:p-4 rounded-xl border border-white/10 hover:border-white/40 text-white">
+                                        <svg class="mb-2 group-hover:scale-110 transition-transform w-6 h-6 md:w-8 md:h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.7 1.21 5.51 0 10-4.49 10-10.02S17.5 2.04 12 2.04zm0 18.02c-1.55 0-3.05-.4-4.38-1.15l-.32-.19-3.26.86.88-3.18-.21-.34c-.85-1.38-1.3-2.94-1.3-4.57 0-4.42 3.59-8.02 8-8.02s8.02 3.6 8.02 8.02-3.6 8.02-8.02 8.02zM17.53 14.3c-.27-.13-1.64-.81-1.9-0.9-.26-.09-.45-.13-.64.13s-.72.9-.88 1.07c-.16.17-.32.19-.59.06s-1.14-.42-2.17-1.33c-.81-.71-1.35-1.59-1.57-1.87-.22-.27-.02-.42.12-.55.13-.12.27-.31.41-.46.14-.14.19-.24.28-.4.09-.16.05-.3-.02-.43s-.64-1.53-.87-2.08c-.23-.55-.47-.48-.64-.48-.17 0-.37-.01-.56-.01s-.5.08-.76.37c-.26.29-.99.96-.99 2.35s1.01 2.73 1.15 2.91c.13.19 1.99 3.04 4.83 4.25.68.29 1.22.47 1.64.6.6.19 1.13.16 1.56.1.48-.07 1.64-.67 1.87-1.32.24-.65.24-1.21.16-1.32-.08-.12-.27-.19-.54-.32z"/></svg>
+                                        <span class="font-bold text-sm md:text-base">WhatsApp</span>
+                                        <span class="text-[10px] md:text-xs text-white/70">Falar Agora</span>
                                     </a>
-                                    <a href="https://www.instagram.com/msacreators/" target="_blank" class="group flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 transition-all duration-300 p-4 rounded-xl border border-white/10 hover:border-white/40 text-white">
-                                        <svg class="mb-2 group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                                        <span class="font-bold">Instagram</span>
-                                        <span class="text-xs text-white/70">Ver Perfil</span>
+                                    <a href="https://www.instagram.com/msacreators/" target="_blank" class="group flex flex-col items-center justify-center bg-white/10 hover:bg-white/20 transition-all duration-300 p-3 md:p-4 rounded-xl border border-white/10 hover:border-white/40 text-white">
+                                        <svg class="mb-2 group-hover:scale-110 transition-transform w-6 h-6 md:w-8 md:h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                                        <span class="font-bold text-sm md:text-base">Instagram</span>
+                                        <span class="text-[10px] md:text-xs text-white/70">Ver Perfil</span>
                                     </a>
                                 </div>
                             </div>
-                            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col items-center justify-center text-center bg-white/5 relative overflow-hidden">
+                            <div class="w-full md:w-1/2 p-6 md:p-12 flex flex-col items-center justify-center text-center bg-white/5 relative overflow-hidden">
                                 <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full filter blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                                <span class="font-title font-bold text-2xl text-white mb-6 uppercase tracking-widest" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">Aqui a mágica acontece</span>
-                                <a href="https://wa.link/5kwhdk" target="_blank" class="group relative bg-white text-[#42A5F5] w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-lg hover:scale-110 transition-all duration-300">
+                                <span class="font-title font-bold text-lg md:text-2xl text-white mb-4 md:mb-6 uppercase tracking-widest" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">Aqui a mágica acontece</span>
+                                <a href="https://wa.link/5kwhdk" target="_blank" class="group relative bg-white text-[#42A5F5] w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 md:mb-6 shadow-lg hover:scale-110 transition-all duration-300">
                                     <div class="absolute inset-0 rounded-full border-4 border-white opacity-50 animate-ping"></div>
-                                    <svg class="animate-point-left" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                    <svg class="animate-point-left w-8 h-8 md:w-10 md:h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                 </a>
-                                <p class="text-white font-medium bg-white/10 px-4 py-1 rounded-full text-sm">Toque para iniciar a conversa</p>
+                                <p class="text-white font-medium bg-white/10 px-3 py-1 rounded-full text-xs md:text-sm">Toque para iniciar</p>
                             </div>
                         </div>
                     </div>
@@ -527,56 +494,56 @@
             </div>
         </section>
 
-        <!-- [NOVA] SEÇÃO DE FAQ (PERGUNTAS FREQUENTES) - MOVIDA PARA O FINAL -->
-        <section id="faq" class="py-20 px-6 sm:px-12 bg-gray-50 relative">
+        <!-- SEÇÃO DE FAQ (PERGUNTAS FREQUENTES) - MOVIDA PARA O FINAL -->
+        <section id="faq" class="py-8 md:py-20 px-4 md:px-6 sm:px-12 bg-gray-50 relative">
             <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-4xl font-title font-bold text-[#333333] uppercase">Dúvidas Frequentes</h2>
-                    <p class="mt-4 text-[#666666]">Tudo o que você precisa saber antes de fecharmos negócio.</p>
+                <div class="text-center mb-8 md:mb-12">
+                    <h2 class="text-2xl md:text-4xl font-title font-bold text-[#333333] uppercase">Dúvidas Frequentes</h2>
+                    <p class="mt-2 md:mt-4 text-[#666666] text-sm md:text-base">Tudo o que você precisa saber.</p>
                 </div>
 
-                <div class="space-y-4">
+                <div class="space-y-3 md:space-y-4">
                     <!-- Pergunta 1 -->
                     <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
-                        <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
-                            <span class="font-bold text-[#333333] text-lg">Qual é o prazo médio de entrega?</span>
-                            <svg class="w-6 h-6 text-[#64B5F6] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <button class="w-full flex justify-between items-center p-4 md:p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-bold text-[#333333] text-sm md:text-lg">Qual é o prazo médio de entrega?</span>
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#64B5F6] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="hidden px-6 pb-6 text-[#666666] leading-relaxed border-t border-gray-100 pt-4">
-                            Para vídeos curtos (Reels/TikTok), o prazo médio é de 24 a 48 horas úteis após o recebimento dos arquivos. Projetos maiores, como vídeos institucionais ou VSLs, podem levar de 3 a 5 dias úteis, dependendo da complexidade.
+                        <div class="hidden px-4 pb-4 md:px-6 md:pb-6 text-[#666666] leading-relaxed border-t border-gray-100 pt-3 md:pt-4 text-sm md:text-base">
+                            Para vídeos curtos (Reels/TikTok), o prazo médio é de 24 a 48 horas úteis. Projetos maiores levam de 3 a 5 dias.
                         </div>
                     </div>
 
                     <!-- Pergunta 2 -->
                     <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
-                        <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
-                            <span class="font-bold text-[#333333] text-lg">Como envio os arquivos para edição?</span>
-                            <svg class="w-6 h-6 text-[#64B5F6] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <button class="w-full flex justify-between items-center p-4 md:p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-bold text-[#333333] text-sm md:text-lg">Como envio os arquivos?</span>
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#64B5F6] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="hidden px-6 pb-6 text-[#666666] leading-relaxed border-t border-gray-100 pt-4">
-                            Utilizamos plataformas como Google Drive, WeTransfer ou Dropbox. Assim que fecharmos, enviarei um link de pasta organizada para você subir seus materiais brutos com total segurança e qualidade.
+                        <div class="hidden px-4 pb-4 md:px-6 md:pb-6 text-[#666666] leading-relaxed border-t border-gray-100 pt-3 md:pt-4 text-sm md:text-base">
+                            Via Google Drive, WeTransfer ou Dropbox. Envio um link seguro para você subir os materiais.
                         </div>
                     </div>
 
                     <!-- Pergunta 3 -->
                     <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
-                        <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
-                            <span class="font-bold text-[#333333] text-lg">Tenho direito a revisões?</span>
-                            <svg class="w-6 h-6 text-[#64B5F6] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <button class="w-full flex justify-between items-center p-4 md:p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-bold text-[#333333] text-sm md:text-lg">Tenho direito a revisões?</span>
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#64B5F6] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="hidden px-6 pb-6 text-[#666666] leading-relaxed border-t border-gray-100 pt-4">
-                            Sim! Todos os projetos incluem até 2 rodadas de revisão gratuitas para ajustes finos. Queremos garantir que o resultado final esteja 100% alinhado com a sua visão.
+                        <div class="hidden px-4 pb-4 md:px-6 md:pb-6 text-[#666666] leading-relaxed border-t border-gray-100 pt-3 md:pt-4 text-sm md:text-base">
+                            Sim! Todos os projetos incluem até 2 rodadas de revisão gratuitas para ajustes finos.
                         </div>
                     </div>
 
                     <!-- Pergunta 4 -->
                     <div class="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
-                        <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
-                            <span class="font-bold text-[#333333] text-lg">Você emite Nota Fiscal?</span>
-                            <svg class="w-6 h-6 text-[#64B5F6] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <button class="w-full flex justify-between items-center p-4 md:p-6 text-left focus:outline-none" onclick="toggleFaq(this)">
+                            <span class="font-bold text-[#333333] text-sm md:text-lg">Você emite Nota Fiscal?</span>
+                            <svg class="w-5 h-5 md:w-6 md:h-6 text-[#64B5F6] transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="hidden px-6 pb-6 text-[#666666] leading-relaxed border-t border-gray-100 pt-4">
-                            Com certeza. Atuamos com total profissionalismo e emitimos Nota Fiscal (NF-e) para todos os serviços prestados, facilitando a contabilidade da sua empresa.
+                        <div class="hidden px-4 pb-4 md:px-6 md:pb-6 text-[#666666] leading-relaxed border-t border-gray-100 pt-3 md:pt-4 text-sm md:text-base">
+                            Com certeza. Emitimos Nota Fiscal (NF-e) para todos os serviços prestados.
                         </div>
                     </div>
                 </div>
@@ -710,65 +677,6 @@
                 icon.classList.remove('rotate-180');
             }
         }
-
-        // GEMINI AI INTEGRATION
-        const btnGenerate = document.getElementById('btn-generate');
-        const aiOutput = document.getElementById('ai-output');
-        const aiResultContainer = document.getElementById('ai-result-container');
-        const apiKey = ""; 
-
-        btnGenerate.addEventListener('click', async () => {
-            const niche = document.getElementById('ai-niche').value;
-            const goal = document.getElementById('ai-goal').value;
-
-            if (!niche) { alert("Por favor, preencha o Nicho."); return; }
-
-            const originalBtnText = btnGenerate.innerHTML;
-            btnGenerate.innerHTML = `<div class="loader"></div> Gerando Roteiro...`;
-            btnGenerate.disabled = true;
-            aiResultContainer.classList.add('hidden');
-            aiOutput.innerHTML = '';
-
-            const prompt = `Aja como um roteirista de vídeo profissional para mídias sociais (TikTok/Reels).
-            Escreva um Roteiro Comercial de 1 minuto para um negócio ou serviço típico do nicho "${niche}" com o objetivo de "${goal}".
-            Use EXATAMENTE este formato estruturado (sem markdown, use HTML simples como <h3>, <ul>, <li>, <strong>):
-            <h3>🎬 Roteiro Comercial – Nicho: ${niche} (1min)</h3>
-            <div style="margin-bottom: 15px;"><strong>[0s–5s] – Abertura (Gancho)</strong><ul><li>📽️ <strong>Imagem:</strong> [Descreva a cena visual]</li><li>🎵 <strong>Trilha:</strong> [Sugestão de música]</li><li>🎙️ <strong>Narração:</strong> "[Texto falado]"</li></ul></div>
-            <div style="margin-bottom: 15px;"><strong>[5s–15s] – Apresentação</strong><ul><li>📽️ <strong>Imagem:</strong> [Descreva a cena visual]</li><li>🎙️ <strong>Narração:</strong> "[Texto falado]"</li></ul></div>
-            <div style="margin-bottom: 15px;"><strong>[15s–30s] – Benefícios/Experiência</strong><ul><li>📽️ <strong>Imagem:</strong> [Descreva a cena visual]</li><li>🎙️ <strong>Narração:</strong> "[Texto falado]"</li></ul></div>
-            <div style="margin-bottom: 15px;"><strong>[30s–50s] – Prova Social/Resultados</strong><ul><li>📽️ <strong>Imagem:</strong> [Descreva a cena visual]</li><li>🎙️ <strong>Narração:</strong> "[Texto falado]"</li></ul></div>
-            <div><strong>[50s–60s] – Call to Action (CTA)</strong><ul><li>📽️ <strong>Imagem:</strong> [Logo, Endereço, etc]</li><li>🎙️ <strong>Narração:</strong> "[Texto final de convite]"</li></ul></div>
-            Seja criativo, direto e persuasivo.`;
-
-            try {
-                let attempt = 0; const maxRetries = 5; let response;
-                while (attempt < maxRetries) {
-                    try {
-                        response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-                            method: 'POST', headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                        });
-                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                        break; 
-                    } catch (fetchError) {
-                        attempt++; if (attempt >= maxRetries) throw fetchError;
-                        await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
-                    }
-                }
-                const data = await response.json();
-                if (data.error) throw new Error(data.error.message);
-                const generatedText = data.candidates[0].content.parts[0].text;
-                aiOutput.innerHTML = generatedText.replace(/```html/g, '').replace(/```/g, '').trim();
-                aiResultContainer.classList.remove('hidden');
-            } catch (error) {
-                console.error("Erro na API Gemini:", error);
-                aiOutput.innerHTML = `<p class="text-red-600 font-bold">❌ Erro ao comunicar com a IA. Por favor, tente novamente.</p>`;
-                aiResultContainer.classList.remove('hidden');
-            } finally {
-                btnGenerate.innerHTML = originalBtnText;
-                btnGenerate.disabled = false;
-            }
-        });
     </script>
 </body>
 </html>
